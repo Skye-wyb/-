@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <div style="padding: 20px; background-color: #ccc">
+        <h1 v-once>{{name}}</h1>
+        <button @click="changeName">修改</button>
+        <h3>{{1>0?'kkk':''}}</h3>
+        <h3 v-if="seen">可以看到</h3>
+        <ol style="list-style-type: disc">
+          <li v-for="(item,index) in friendList" :key="index">{{item}}</li>
+        </ol>
+
+        <h3>{{message}}</h3>
+        <h3>{{msg}}</h3>
+        <h3>{{reverseMessage}}</h3>
+
+        <h2 v-if="show">Vue welcome</h2>
+        <h2 v-else>Vue bye</h2>
+        <template v-if="!show">
+          <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+          </ul>
+        </template>
+        <a v-else href="https://baidu.com">百度一下，你就知道</a>
+      </div>
+      <hr />
+      <div style="padding: 20px; background-color: #ddd">
+        <h1 v-show="true">first</h1>
+        <!-- v-show对template标签无效果 -->
+        <template v-show="!show">yesOrOK</template>
+      </div>
+      <hr />
+      <div style="padding: 20px; background-color: #ccc">
+        <ul>
+          <li v-for="(item,index) in items" :key="index">{{item.message}}</li>
+        </ul>
+        <ul>
+          <li v-for="(value,name,index) in object" :key="index">
+            {{name}}------{{value}}
+          </li>
+        </ul>
+        <ul>
+          <li v-for="(value,index) of 10" :key="index">{{value}}</li>
+        </ul>
+      </div>
+      <hr />
+      <div style="padding: 20px; background-color: #ccc">
+        <p>{{count}}</p>
+        <button @click="count++">点我+</button>
+        <br />
+        <input type="text" @keyup.enter="alert" />
+        <input type="text" @keyup.left="alert" />
+      </div>
+      <hr />
+      <div style="padding: 20px; background-color: #ccc">
+        <my-header :age="20" sex="男" grade="1" name="wyb">好的</my-header>
+
+        <h1 @myClick="changeLog">自定义事件</h1>
+      </div>
+    </div>
+
+    <script>
+      Vue.component('my-header', {
+        data: function () {
+          return {
+            name: '有道'
+          }
+        },
+        props: {
+          name: String,
+          age: Number,
+          heigth: {
+            type: Number,
+            default: 180
+          },
+          sex: {
+            type: String,
+            required: true
+          },
+          hobby: {
+            type: Object,
+            default: function () {
+              return { name: '滑板' }
+            }
+          },
+          grade: {
+            validator: function (value) {
+              return value !== 1
+            }
+          }
+        },
+        template:
+          '<div><h1>{{name}}---{{age}}</h1><slot></slot><slot></slot></div>'
+      })
+      const vm = new Vue({
+        el: '#root',
+        data: {
+          name: 'wyb',
+          seen: true,
+          friendList: ['wyb', 'zyy', 'zly', 'wl'],
+          message: 'Hello Jennie',
+          msg: '',
+          show: true,
+          items: [
+            { message: 'Foo', index: 1 },
+            { message: 'Bar', index: 2 }
+          ],
+          object: {
+            title: 'How to do lists in Vue',
+            author: 'Jane Doe',
+            publishedAt: '2016-04-10'
+          },
+          count: 0
+        },
+        created() {
+          this.reverseMsg()
+          console.log(this)
+          this.$emit('myClick')
+        },
+        updated() {
+          this.reverseMsg()
+        },
+        methods: {
+          changeName() {
+            this.name = this.name + 'y'
+          },
+          reverseMsg() {
+            console.log('方法执行了1次')
+            this.msg = this.message.split(' ').reverse().join(' ')
+          },
+          alert() {
+            console.log('enter')
+          },
+          changeLog() {
+            console.log('自定义事件~')
+          }
+        },
+        computed: {
+          reverseMessage: function () {
+            console.log('计算属性计算了1次')
+            return this.message.split(' ').reverse().join(' ')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

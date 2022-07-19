@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="con"></div>
+    <script>
+      let vnode = {
+        tag: 'a',
+        text: '百度一下，你就知道',
+        attrs: {
+          src: 'https://baidu.com'
+        },
+        children: [
+          {
+            tag: 'div',
+            text: '我是hello盒子',
+            attrs: {
+              class: 'hello'
+            },
+            children: []
+          }
+        ]
+      }
+      const box = document.getElementById('con')
+      render(vnode, box)
+      function render(vnode, container) {
+        container.appendChild(_render(vnode))
+      }
+
+      function _render(vnode) {
+        if (typeof vnode === 'number') {
+          vnode = String(vnode)
+        }
+        if (typeof vnode === 'string') {
+          return document.createTextNode(vnode)
+        }
+        // 普通DOM
+        const dom = document.createElement(vnode.tag)
+        if (vnode.attrs) {
+          Object.keys(vnode.attrs).forEach(key => {
+            const value = vnode.attrs[key]
+            dom.setAttribute(key, value)
+          })
+        }
+        dom.innerText = vnode.text
+        // 子数组递归
+        vnode.children.forEach(child => {
+          render(child, dom)
+        })
+        return dom
+      }
+    </script>
+  </body>
+</html>

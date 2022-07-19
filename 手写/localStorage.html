@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class _localStorage {
+        constructor() {
+          this.name = 'storage'
+        }
+        setItem(key, value, expires) {
+          let obj = {
+            value,
+            expires,
+            startTime: new Date().getTime()
+          }
+          if (obj.expires) {
+            localStorage.setItem(key, JSON.stringify(obj))
+          } else {
+            localStorage.setItem(key, JSON.stringify(obj.value))
+          }
+        }
+        getItem(key) {
+          let temp = JSON.parse(localStorage.getItem(key))
+          if (temp.expires) {
+            let date = new Date().getTime()
+            // 过期
+            if (date - temp.startTime > temp.expires) {
+              localStorage.removeItem(key)
+              return
+            } else {
+              return temp.value
+            }
+          } else {
+            return temp
+          }
+        }
+      }
+      let storage = new _localStorage()
+      storage.setItem('name', 'wyb', 5000)
+      setTimeout(() => {
+        console.log(storage.getItem('name'))
+      }, 9000)
+    </script>
+  </body>
+</html>
