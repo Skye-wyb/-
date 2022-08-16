@@ -1,16 +1,29 @@
 function debounce(func, delay) {
   let timer = null
-  return function () {
-    let context = this
-    let args = arguments
-
-    if (timer) {
-      clearTimeout(timer)
-      timer = null
-    }
-    // 设置定时器
-    timer = setTimeout(() => {
-      func.apply(context, args)
-    }, delay)
-  }
+  return function (...args) {
+    clearTimeout(timer)
+	timer = setTimeout(()=>{
+		func.apply(this,args)
+	},delay)
+   }
 }
+
+function fn(){
+	console.log('kkkk');
+}
+
+let fun = debounce(fn,3000)
+fun()
+setTimeout(()=>{
+	fun()
+},2000)
+setTimeout(()=>{
+	fun()
+},3000)
+setTimeout(()=>{
+	fun()
+},4000)
+setTimeout(()=>{
+	fun()
+},7000)
+ 
