@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>                                                                                                                      "></script>
+	</head>
+	<body>
+	    <div id="box"></div>
+	    <script>
+	      let vnode = {
+	        tag: 'a',
+	        text: '百度一下，你就知道',
+	        attrs: {
+	          src: 'https://baidu.com'
+	        },
+	        children: [
+	          {
+	            tag: 'div',
+	            text: '我是hello盒子',
+	            attrs: {
+	              class: 'hello'
+				  
+	            },
+	            children: []
+	          }
+	        ]
+	      }
+		  function render(vnode,container){
+		  	container.appendChild(_render(vnode))
+		  }
+		  
+		  function _render(vnode){
+		  	if(typeof vnode === 'number'){
+		  		vnode = String(vnode)
+		  	}
+		  	if(typeof vnode === 'string'){
+		  		return document.createTextNode(vnode)
+		  	}
+		  	// 普通DOM
+		  	const dom = document.createElement(vnode.tag)
+		  	if(vnode.attrs){
+		  		Object.keys(vnode.attrs).forEach(key=>{
+		  			const value = vnode.attrs[key]
+		  			dom.setAttribute(key,value)
+		  		})
+		  	}
+		  	// 子数组递归
+		  	vnode.children.forEach(child=>{
+		  		render(child,dom)
+		  	})
+		  	return dom
+		  }
+	      const box = document.getElementById('box')
+	      render(vnode, box)
+	    </script>
+	  </body>
+</html>

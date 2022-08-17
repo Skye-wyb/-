@@ -29,5 +29,5 @@ instance.interceptors.response.use(
     // 响应错误的处理
     return Promise.reject(err)
   }
-  
-  export default instance
+)
+export default instance
