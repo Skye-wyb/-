@@ -1,1 +1,1 @@
-console.log(123.45678.toFixed(2));
+console.log(null == undefined);
