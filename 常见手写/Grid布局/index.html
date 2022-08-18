@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>格栅布局</title>
+		<style>
+			.container{
+				display: grid;
+				/* 列宽 */
+				grid-template-columns: 100px;
+				/* 行宽：3行 */
+				grid-template-rows: 100px 100px 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 Flex 布局是轴线布局，只能指定"项目"针对轴线的位置，可以看作是一维布局。
+		 Grid 布局则是将容器划分成"行"和"列"，产生单元格，然后指定"项目所在"的单元格，可以看作是二维布局。Grid 布局远比 Flex 布局强大。
+		 -->
+		 <div class="container">
+			 <div>
+			 	<p>1</p>
+			 </div>
+			 <div>
+			 	<p>2</p>
+			 </div>
+			 <div>
+			 	<p>3</p>
+			 </div>
+		 </div>
+	</body>
+</html>

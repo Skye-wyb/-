@@ -3,7 +3,7 @@ function debounce(fn,delay){
 	return function(...args){
 		// 清除上一次的定时器
 		clearTimeout(timer)
-		timer = setTimeout(()=>{
+		timer = setTimeout(function(){
 			fn.apply(this,args)
 		})
 	}
