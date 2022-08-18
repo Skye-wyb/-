@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			 var height = 100
+
+			  // 滚动代码
+			  const scrollToTop = () =>{
+			    var hScrollTop = document.body.scrollTop;
+			    var hScrollHeight = document.body.scrollHeight;
+			    var height = 1
+			    console.log(hScrollTop+" "+hScrollHeight+" "+height);
+			    if((height+hScrollTop)>=hScrollHeight){//滚动条已经到了容器底部
+			      document.body.scrollTop=0;
+			    }else{
+			      var h = hScrollTop + height;
+			      document.body.scrollTop=h;
+			      window.requestAnimationFrame(scrollToTop)
+			    }
+			  }
+			  
+			  scrollToTop()
+
+		</script>
+	</body>
+</html>
