@@ -19,7 +19,7 @@ function postOrder(root){
 	let ans = []
 	let stack = [root]
 	while(stack.length){
-		let o = stack.pop()
+		const o = stack.pop()
 		ans.unshift(o.val)
 		o.left && stack.push(o.left)
 		o.right && stack.push(o.right)

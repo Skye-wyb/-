@@ -1,24 +1,16 @@
-var threeSum = function (nums) {
-  let ans = []
-  function dfs(temp) {
-    if (temp.length === 3) {
-      // if (getSum(temp) === 0 && !isSame(ans, temp)) {
-      ans.push([...temp])
-      // }
-      return
-    }
-    for (let i = 0; i < nums.length; i++) {
-      if (temp.includes(nums[i])) {
-        continue
-      }
-      temp.push(nums[i])
-      dfs(temp)
-      temp.pop()
-    }
-  }
-  dfs([])
-  return ans
+let str = 'aphkvcdbe   POBHACS'
+function sortStr(str){
+	let ans  = str.split('').map(item=>item.toLowerCase()).sort((a,b)=>{
+		if(a<b){
+			return -1
+		}else if(a==b){
+			return 0
+		}else{
+			return 1
+		}
+	})
+	ans = new Set(ans)
+	return [...ans].join('')
 }
-
-let ans = threeSum([-1, 0, 1, 2, -1, -4])
-console.log(ans)
+let ans = sortStr(str)
+console.log(ans);

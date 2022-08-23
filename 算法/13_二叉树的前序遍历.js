@@ -17,8 +17,8 @@ function preOrder(root){
 // 栈的实现
 function preOrder(root){
 	if(!root){
-	        return []
-	    }
+	    return []
+	}
 	let ans = []
 	let stack = [root]
 	while(stack.length){

@@ -8,4 +8,5 @@ let cuttingRope = function(n){
 			dp[i] = Math.max(dp[i],nowBigger)
 		}
 	}
+	return dp[n]
 }

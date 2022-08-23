@@ -11,12 +11,13 @@ let isPalindrome = function(head){
 
 // 利用链表的后序遍历
 let isPalindrome = function(head){
-	let ans = ''
-	let res = ''
-	while(head){
-		ans+=head.val
-		res = res + head.val
-		head = head.next
+	let left = head
+	function traverse(right){
+		if(!right) return true
+		let res = traverse(right.next)
+		res = res && (right.val===left.val)
+		left = left.next
+		return res
 	}
-	return ans === res
+	return traverse(head)
 }
