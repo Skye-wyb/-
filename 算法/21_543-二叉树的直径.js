@@ -9,4 +9,6 @@ let diameterOfBinaryTree = function(root){
 		res = Math.max(leftHeight+rightHeight,res)
 		return 1+Math.max(leftHeight,rightHeight)
 	}
+	depth(root)
+	return res
 }
