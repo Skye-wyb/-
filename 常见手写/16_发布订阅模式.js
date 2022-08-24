@@ -1,5 +1,5 @@
-class eventEmitter{
-	constructor(){
+class eventEmitter {
+	constructor(arg) {
 		this.events = {}
 	}
 	// 绑定
@@ -25,7 +25,7 @@ class eventEmitter{
 	}
 	// 仅能触发一次
 	once(event,callback){
-		let wrapFun = function(){
+		let wrapFun = function(...args){
 			callback(...args)
 			this.off(event,wrapFun)
 		}

@@ -1,16 +1,17 @@
-let str = 'aphkvcdbe   POBHACS'
-function sortStr(str){
-	let ans  = str.split('').map(item=>item.toLowerCase()).sort((a,b)=>{
-		if(a<b){
-			return -1
-		}else if(a==b){
-			return 0
-		}else{
-			return 1
-		}
-	})
-	ans = new Set(ans)
-	return [...ans].join('')
+function fib(){
+	return
 }
-let ans = sortStr(str)
-console.log(ans);
+
+作者：bdbdbdbd
+链接：https://www.nowcoder.com/discuss/972404
+来源：牛客网
+
+let a = fib()
+console.log(a.next())   //0
+console.log(a.next())   //1
+console.log(a.next())   //1
+console.log(a.next())   //2
+console.log(a.next())   //3
+console.log(a.next())   //5
+console.log(a.next())   //8
+console.log(a.next())   //11
