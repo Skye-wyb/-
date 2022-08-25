@@ -18,7 +18,7 @@ Promise.prototype.then = function(onResolved,onRejected){
 			}
 		}
 		if(self.promiseState === 'fulfilled'){
-			handleCallback(onRejected)
+			handleCallback(onResolved)
 		}
 		if(self.promiseState === 'rejected'){
 			handleCallback(onRejected)

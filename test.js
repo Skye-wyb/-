@@ -1,17 +1,15 @@
-function fib(){
-	return
+let obj = {
+  categoryType: 1,
+  courseCoverUrl: 1,
+  courseDetailUrl: 1,
+  courseId: 1,
+  courseIntro: 1,
+  courseName: 1,
+  createTime: 1,
+  exchangedUserIds: 1,
+  id: 1,
+  status: false,
+  updateTime: '2022-08-25T12:28:27.929+0800'
 }
-
-作者：bdbdbdbd
-链接：https://www.nowcoder.com/discuss/972404
-来源：牛客网
-
-let a = fib()
-console.log(a.next())   //0
-console.log(a.next())   //1
-console.log(a.next())   //1
-console.log(a.next())   //2
-console.log(a.next())   //3
-console.log(a.next())   //5
-console.log(a.next())   //8
-console.log(a.next())   //11
+let obj1 = obj
+console.log(obj1)
