@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="input">
+		<iframe src="http://localhost:8086/index" frameborder="2" id="iframe"></iframe>
+		
+		
+		<script>
+			const iframe = document.getElementById('iframe')
+			const input = document.getElementById('input')
+			
+			input.addEventListener('input',function(){
+				let text = input.value
+				iframe.contentWindow.postMessage({
+					message:text
+				},'http://localhost:8086/index')
+			})
+		</script>
+	</body>
+</html>
