@@ -8,9 +8,10 @@
      <title>Document</title>
      <style type="text/css">
 		     .box{
-		             width: 400px;
-		             height:700px;
+		             width: 300px;
+		             height:300px;
 		             position: relative;
+		             /* background: linear-gradient(#ff0,#ffa,#f00); */
 					 background-color: pink;
 		         }
 		         .content{
@@ -18,10 +19,14 @@
 		             top: 50%;
 		             left: 50%;
 		             transform: translate(-50%,-50%);
-		             width: 300px;
-		             height: 500px;
+		             width: 200px;
+		             height: 200px;
+		              /* 20px center 设置渐变圆心
+		             transparent 0%, transparent 20px,表示半径20px的圆是透明色
+		             #fff 20px 表示半径20px以外为白色
+		             -20px 背景左移20px，这边是因为设置的透明圆半径是20px，所以设为-20px,如果大小有其他需求自行更改 */
 		             background: radial-gradient(circle at 20px center, transparent 0%, transparent 20px, #fff 20px) -20px;
-					 border-radius: 10px;
+		             /* z-index: 12; */
 		         }
       </style>
    </head>

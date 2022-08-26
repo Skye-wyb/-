@@ -38,4 +38,4 @@ http.interceptors.response.use(response=>{
 
 export default http
 
-至此，就实现了拦截，只需要在登录那边设置Token并存进localStorage里便好。
+// 至此，就实现了拦截，只需要在登录那边设置Token并存进localStorage里便好。

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <button onclick="showColor()">切换</button>
+    <script>
+      const box = document.getElementById('box')
+      // #xxxxxx格式
+      function randomColor() {
+        return '#' + Math.floor(Math.random() * 0xffffff).toString(16)
+      }
+      // rgb格式
+      function randomColorRGB() {
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        return `rgb(${r},${g},${b})`
+      }
+      // rgba格式
+      function randomColorRGBA() {
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        let a = Math.random().toFixed(1)
+        return `rgb(${r},${g},${b},${a})`
+      }
+
+      function showColor() {
+        // box.style.backgroundColor = randomColor()
+        // box.style.backgroundColor = randomColorRGB()
+        box.style.backgroundColor = randomColorRGBA()
+      }
+    </script>
+  </body>
+</html>
