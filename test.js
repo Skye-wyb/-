@@ -1,14 +1,7 @@
-'use strict'
-var name = 'Jay'
-var person = {
-  name: 'Wang',
-  pro: {
-    name: 'Michael',
-    getName: function () {
-      return this.name
-    },
-  },
+function fn(a, b, ...rest) {
+  console.log(a, b)
+  console.log('-------------------')
+  console.log(rest)
 }
-console.log(person.pro.getName())
-var people = person.pro.getName
-console.log(people())
+
+fn(1, 2, 3, 4, 5, 6, 7)
