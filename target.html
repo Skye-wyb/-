@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul{
+				width: 500px;
+				height: 500px;
+				background-color: yellow;
+				display: flex;
+			}
+			li{
+				width: 80px;
+				height: 80px;
+				margin: 10px;
+				background-color: greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="ul">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<script>
+			let ul = document.getElementById('ul')
+			ul.addEventListener('click',function(e){
+				console.log('触发事件的元素', e.target);
+				console.log('绑定事件的元素', e.currentTarget);
+			})
+		</script>
+	</body>
+</html>

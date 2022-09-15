@@ -8,7 +8,7 @@ Function.prototype.bind = function(context,...args){
 	// 	return fn.apply(this instanceof Fn ? this : context,args.concat(args2))
 	// }
 	let self = this
-	return function(){
+	return function(...args2){
 		let res = null
 		let fn = Symbol('fn')
 		context[fn] = self
