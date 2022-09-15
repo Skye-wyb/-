@@ -28,5 +28,7 @@ export function post(url,params){
 	if(params){
 		config.data = params
 	}
-	return service(config)
+	return service(config).then(res=>{
+		// 成功处理
+	}).catch()
 }
