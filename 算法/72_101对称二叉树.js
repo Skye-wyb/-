@@ -1,12 +1,11 @@
-let isSymmetric = function(root){
-	function check(p,q){
-		if(!p&&!q){
-			return true
-		}
-		if(!p || !q){
-			return false
-		}
-		return p.val===q.val && check(p.left,q.right) && check(p.right,q.left )
+function _new(Fn,...args){
+	const instance = {}
+	if(Fn.prototype){
+		instance.__proto__ = Fn.prototype
 	}
-	return check(root,root)
+	const res = Fn.apply(instance,args)
+	if(typeof res==='function' || (typeof res === 'object' && res!=null)){
+		return res
+	}
+	return instance
 }

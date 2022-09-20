@@ -1,15 +1,18 @@
-function maxLength(s){
-	let map = new Map()
-	let str = ''
-	let max = 0
-	for(let item of s){
-		map.set(item,map.get(item)+1||1)
+let minDepth = function(root){
+	if(!root){
+		return 0
 	}
-	for(let [key,value] of map){
-		if(value>max){
-			max = value
-			str = key
+	const stack = [[root,1]]
+	while(stack.length){
+		const [o,n] = stack.shift()
+		if(!o.left && !o.right){
+			return n
+		}
+		if(o.left){
+			stack.push([o.left,n+1])
+		}
+		if(o.right){
+			stack.push([o.right,n+1])
 		}
 	}
-	return [str,max]
 }

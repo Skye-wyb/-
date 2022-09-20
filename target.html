@@ -1,45 +1,92 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<style>
-			ul{
-				width: 500px;
-				height: 500px;
-				background-color: yellow;
-				display: flex;
-			}
-			li{
-				width: 80px;
-				height: 80px;
-				margin: 10px;
-				background-color: greenyellow;
-			}
-		</style>
-	</head>
-	<body>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		ul {
+			width: 500px;
+			height: 200px;
+			background-color: yellow;
+			overflow: auto;
+			scrollbar-width: none;
+			display: flex;
+			position: relative;
+		}
+
+		ul::-webkit-scrollbar {
+			background-color: transparent;
+		}
+
+		/* .ul::-webkit-scrollbar {
+			/* /隐藏滚轮/  */
+		/* display: none;
+		} */
+
+		li {
+			list-style: none;
+			min-width: 260px;
+			/* height: 80px; */
+			/* min-height: 80px; */
+			margin-right: 10px;
+			background: url('./img/field.png');
+			background-size: 100% 100%;
+		}
+
+		.a {
+			position: absolute;
+			top: 100px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<button id="btn1">下降</button>
+		<button id="btn2">上升</button>
 		<ul id="ul">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
+			<li class="a"></li>
+			<li class="b"></li>
+			<li class="c"></li>
+			<li class="d"></li>
+			<li class="e"></li>
+			<li class="f"></li>
+			<li class="g"></li>
+			<li class="h"></li>
+			<li class="i"></li>
+			<li class="j"></li>
+			<li class="k"></li>
+			<li class="l"></li>
 		</ul>
-		
-		<script>
-			let ul = document.getElementById('ul')
-			ul.addEventListener('click',function(e){
-				console.log('触发事件的元素', e.target);
-				console.log('绑定事件的元素', e.currentTarget);
-			})
-		</script>
-	</body>
+	</div>
+
+	<script>
+		// let ul = document.getElementById('ul')
+		// ul.onscroll = function handleScroll (e) {
+		// 	// ul.style.transform = 'translateY(-1px)';
+		// 	ul.scrollBy({ top: 10, left: 0, behavior: 'smooth' })
+		// 	console.log('呼呼呼');
+		// }
+		let index = 1
+		let count = 1
+		document.getElementById('btn1').onclick = function () {
+			document.getElementById('ul').style.transform = `translateY(${50 * index}px)`
+			index++
+			count = 1
+		}
+		document.getElementById('btn2').onclick = function () {
+			document.getElementById('ul').style.transform = `translateY(${-50 * count}px)`
+			count++
+			index = 1
+		}
+		// let index = 1
+		// setInterval(() => {
+		// 	document.getElementById('ul').style.transform = `translateY(${50 * index}px)`
+		// 	index++
+		// 	console.log('ul');
+		// }, 800)
+	</script>
+</body>
+
 </html>

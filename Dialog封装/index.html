@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>弹窗组件封装</title>
+		<link rel="stylesheet" href="./index.css">
+	</head>
+	<body>
+		<!-- 弹窗按钮，用于调用点击事件的弹窗 -->
+		<button id="btn">弹窗组件</button>
+		 <!-- 指定content内容，在这里采用id，并默认将其设置为隐藏 -->
+		 <div id="content" style="display: none;">我是一个小天才</div>
+		 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+		 <script src="./index.js"></script>
+		 <script>
+			 $('#btn').click(function(){
+				 var index = keyui.dialog({
+					 title:'弹窗',
+					 content:'#content',
+					 btn:['确认','取消'],
+					 area:['200px','200px'],
+					 yes:function(){
+						 console.log(index);
+						 keyui.close(index)
+					 },
+					 no:function(index){
+						 keyui.close(index)
+					 }
+				 })
+			 })
+		 </script>
+	</body>
+</html>

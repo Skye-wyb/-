@@ -9,7 +9,7 @@ let minDepth = function(root){
 			return n
 		}
 		if(o.left){
-			stack.push([root.left],n+1)
+			stack.push([root.left,n+1])
 		}
 		if(o.right){
 			stack.push([root.right,n+1])

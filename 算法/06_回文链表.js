@@ -3,7 +3,7 @@ let isPalindrome = function(head){
 	let res = ''
 	while(head){
 		ans+=head.val
-		res = res + head.val
+		res = head.val + res
 		head = head.next
 	}
 	return ans === res
