@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 400px;
+            height: 400px;
+            background-color: bisque;
+        }
+
+        #div2 {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('div1').addEventListener('click', function () {
+            console.log('div1点击了');
+        }, true)
+        document.getElementById('div2').addEventListener('click', function () {
+            console.log('div2点击了');
+        }, true)
+        document.getElementById('div3').addEventListener('click', function () {
+            console.log('div3点击了');
+        }, true)
+    </script>
+</body>
+
+</html>
