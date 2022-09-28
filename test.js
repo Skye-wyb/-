@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 let [n,k] = [5,2]
 let nums = [1,5,3,4,2]
 let count = 0
@@ -31,3 +32,12 @@ let p = new Promise((resolve,reject)=>{
 })
 >>>>>>> 77ab73e874629741b4b91aeea51d0cde0f85be78
 >>>>>>> ba3da66809eafe6bb8711166426a11c7897bbd61
+=======
+function fn(a, b, ...rest) {
+  console.log(a, b)
+  console.log('-------------------')
+  console.log(rest)
+}
+
+fn(1, 2, 3, 4, 5, 6, 7)
+>>>>>>> master

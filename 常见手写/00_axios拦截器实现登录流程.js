@@ -31,7 +31,7 @@ http.interceptors.response.use(response=>{
 		// 未授权
 		window.location.href = '/login'
 	}
-	return Promise.reject(data)
+	return Promise.resolve(data)
 },error=>{
 	return Promise.reject(error)
 })
