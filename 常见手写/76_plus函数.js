@@ -16,6 +16,6 @@ let plus = function (...args) {
   }
 }
 
-plus()
-plus(1)(2)()
-plus(6)(6)(6)()
+plus() // 0
+plus(1)(2)() // 3
+plus(6)(6)(6)() // 18

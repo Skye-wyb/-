@@ -19,7 +19,7 @@ let levelOrder = function(root){
 		return []
 	}
 	let ans = []
-	let stack = []
+	let stack = [root]
 	while(stack.length){
 		let len = stack.length
 		let temp = []

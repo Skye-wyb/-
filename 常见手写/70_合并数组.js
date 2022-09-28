@@ -23,10 +23,8 @@ let arr1 = [
   'B3',
   'C1',
   'C2',
-  'C3',
   'D1',
   'D2',
-  'D3',
 ]
 let arr2 = ['A', 'B', 'C', 'D']
 let ans = concatArr(arr1, arr2)

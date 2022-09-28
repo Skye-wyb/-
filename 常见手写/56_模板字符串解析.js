@@ -16,11 +16,9 @@ let template = 'my name is ${name},age is ${age},hobby is ${hobby}'
 let data = {
   name: 'wyb',
   age: 24,
-  hobby: {
-    name: '花瓣',
-    grade: 1
-  }
+  hobby:'滑板'
 }
 let ans = render(template, data)
 console.log(ans)
-// my name is wyb,age is 24,hobby is [object Object]
+
+// my name is wyb,age is 24,hobby is 滑板
