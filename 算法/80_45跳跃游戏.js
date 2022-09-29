@@ -11,7 +11,7 @@ let jump = function (nums) {
         }
         start = end
         end = tempMax + 1
-        ++res
+        res++
     }
     return res
 }
