@@ -1,4 +1,5 @@
 // 不管创建多少个对象都只有一个实例
+// 单例：指的是创建的总是同一个实例，使用类创建的实例始终是相同的
 let Single = (function(){
 	let instance = null
 	function Single(name){
