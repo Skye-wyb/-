@@ -1,0 +1,25 @@
+$color: pink;
+
+h1 {
+    color: $color;
+}
+
+@mixin div-parent($px: 12px, $color: green) {
+    width: 1000px;
+    height: 500px;
+    border: $px solid purple;
+    background-color: $color;
+}
+
+.parent {
+    @include div-parent(14px);
+
+    .child {
+        color: white;
+        font-weight: 600;
+    }
+}
+
+.bro {
+    @include div-parent(12px, yellow)
+}

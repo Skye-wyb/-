@@ -8,24 +8,16 @@
     <title>Document</title>
     <style>
         .parent {
+            /* 浮动元素的父元素设置overflow:hidden */
             overflow: hidden;
-            width: 500px;
-            height: 500px;
-            background-color: yellow;
+            background-color: pink;
         }
 
         .son {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: green;
-        }
-
-        .two {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: blue;
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
         }
     </style>
 </head>
@@ -33,7 +25,6 @@
 <body>
     <div class="parent">
         <div class="son"></div>
-        <div class="two"></div>
     </div>
 </body>
 

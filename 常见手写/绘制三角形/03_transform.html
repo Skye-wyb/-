@@ -8,34 +8,28 @@
     <title>Document</title>
     <style>
         .box {
+            width: 140px;
+            height: 100px;
             position: relative;
-            width: 100%;
-            height: 500px;
-            background-color: #fcf4cc;
+            overflow: hidden;
         }
 
-        .left {
-            width: 200px;
-            height: 100%;
-            background-color: yellow;
-        }
-
-        .right {
+        .box::before {
+            content: "";
             position: absolute;
             top: 0;
-            left: 200px;
+            left: 0;
             right: 0;
-            height: 100%;
-            background-color: orange;
+            bottom: 0;
+            background-color: palevioletred;
+            transform-origin: left bottom;
+            transform: rotate(45deg);
         }
     </style>
 </head>
 
 <body>
-    <div class="box">
-        <div class="left"></div>
-        <div class="right"></div>
-    </div>
+    <div class="box"></div>
 </body>
 
 </html>

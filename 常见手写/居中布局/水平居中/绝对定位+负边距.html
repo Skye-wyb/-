@@ -8,24 +8,19 @@
     <title>Document</title>
     <style>
         .parent {
-            overflow: hidden;
+            position: relative;
             width: 500px;
             height: 500px;
-            background-color: yellow;
+            background-color: rgb(250, 197, 64);
         }
 
         .son {
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
             width: 100px;
             height: 100px;
-            margin: 10px;
-            background-color: green;
-        }
-
-        .two {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: blue;
+            background-color: plum;
         }
     </style>
 </head>
@@ -33,7 +28,6 @@
 <body>
     <div class="parent">
         <div class="son"></div>
-        <div class="two"></div>
     </div>
 </body>
 
