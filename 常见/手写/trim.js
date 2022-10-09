@@ -6,4 +6,4 @@ String.prototype.trim = function () {
 
 let str = '        this              '
 let ans = str.trim()
-console.log(ans)
+console.log(ans + '|')

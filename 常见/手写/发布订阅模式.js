@@ -1,37 +1,37 @@
-class eventEmitter{
-	constructor(){
+class eventEmitter {
+	constructor() {
 		this.events = {}
 	}
 	// 绑定
-	on(event,callback){
+	on (event, callback) {
 		let callbacks = this.events[event] || []
 		callbacks.push(callback)
 		this.events[event] = callbacks
 		return this
 	}
 	// 解绑
-	off(event,callback){
+	off (event, callback) {
 		let callbacks = this.events[event]
-		this.events[event] = callback && callback.filter(fn=>{
-			fn!==callback
+		this.events[event] = callbacks && callbacks.filter(fn => {
+			return fn !== callback
 		})
 		return this
 	}
 	// 触发
-	emit(event,...args){
+	emit (event, ...args) {
 		let callbacks = this.events[event]
-		callbacks.forEach(callback=>{
+		callbacks.forEach(callback => {
 			callback(...args)
 		})
 		return this
 	}
 	// 仅触发一次
-	once(event,callback){
-		let wrapFun = function(...args){
+	once (event, callback) {
+		let wrapFun = function (...args) {
 			callback(...args)
-			this.off(event,callback)
+			this.off(event, callback)
 		}
-		this.on(event,wrapFun)
+		this.on(event, wrapFun)
 		return this
 	}
 }

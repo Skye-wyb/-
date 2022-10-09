@@ -4,6 +4,6 @@ function formatNumber(number){
 	  const [integer, decimal = ''] = number.split('.')
 	  return integer.replace(/(?=(\d{3})+$)/g, ',').substring(1) + (decimal ? '.' + decimal : '')
 }
-let num = 123456789.123
+let num = 12123456789.123
 let ans = formatNumber(num)
 console.log(ans);

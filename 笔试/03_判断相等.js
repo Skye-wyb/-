@@ -1,6 +1,13 @@
 console.log(NaN == false)
+console.log(NaN == true)
 console.log(null == undefined)
 console.log(undefined == '0')
 console.log([] == [])
 console.log(null == 0)
+console.log(NaN == undefined);
+console.log(undefined == true);
+console.log(undefined == false);
 console.log([] == false)
+console.log({} == false)
+console.log({} != {});
+console.log([] != []);

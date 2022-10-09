@@ -11,3 +11,7 @@ var findUnsortedSubarray = function (nums) {
   }
   return end - start > 0 ? end - start + 1 : 0
 }
+
+let nums = [2, 6, 4, 8, 10, 9, 15]
+let ans = findUnsortedSubarray(nums)
+console.log(ans);

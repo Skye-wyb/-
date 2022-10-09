@@ -5,8 +5,6 @@ class ListNode {
   }
 }
 
-ListNode.prototype.push = function (val, position) {
-    while
-}
+ListNode.prototype.push = function (val, position) { }
 let head = new ListNode(0, new ListNode(1, new ListNode(2)))
 console.log(head)

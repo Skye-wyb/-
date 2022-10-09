@@ -1,20 +1,20 @@
-class PlayBoy{
-	constructor(name){
+class PlayBoy {
+	constructor(name) {
 		this.name = name
 		this.stack = []
 	}
-	sayHi(){
+	sayHi () {
 		console.log(`hello, my name is ${this.name}`);
 		return this
 	}
-	sleep(time){
-		setTimeout(()=>{
+	sleep (time) {
+		setTimeout(() => {
 			this.stack.shift()()
-		},time)
+		}, time)
 		return this
 	}
-	play(game){
-		const fn = ()=>{
+	play (game) {
+		const fn = () => {
 			console.log(`我在玩${game}`);
 		}
 		this.stack.push(fn)
@@ -22,5 +22,5 @@ class PlayBoy{
 	}
 }
 
-const boy = new PlayBoy('tom')
+const boy = new PlayBoy('王一博')
 boy.sayHi().sleep(1000).play('王者').sleep(2000).play('跳一跳')

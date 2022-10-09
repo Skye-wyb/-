@@ -1,29 +1,29 @@
-Promise.allSettled = function(promises){
+Promise.allSettled = function (promises) {
 	let len = promises.length
 	let count = 0
 	let result = []
-	return new Promise((resolve,reject)=>{
-		if(len === 0){
+	return new Promise((resolve, reject) => {
+		if (len === 0) {
 			return resolve([])
 		}
-		promises.forEach((promise,i)=>{
-			Promise.resolve(promise).then(res=>{
+		promises.forEach((promise, i) => {
+			Promise.resolve(promise).then(res => {
 				count++
 				result[i] = {
-					status:'fulfilled',
-					value:res
+					status: 'fulfilled',
+					value: res
 				}
-				if(count === len){
+				if (count === len) {
 					resolve(result)
 				}
-			},err=>{
+			}, err => {
 				count++
 				result[i] = {
-					status:'rejected',
-					reason:err
+					status: 'rejected',
+					reason: err
 				}
-				if(count === len){
-					resolve(result)
+				if (count === len) {
+					reject(result)
 				}
 			})
 		})

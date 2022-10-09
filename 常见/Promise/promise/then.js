@@ -1,34 +1,34 @@
-Promise.prototype.then = (onResolved,onRejected){
+Promise.prototype.then = (onResolved, onRejected) => {
 	const self = this
-	return new Promise((resolve,reject)=>{
-		const handleCallback = callback =>{
-			try{
+	return new Promise((resolve, reject) => {
+		const handleCallback = callback => {
+			try {
 				const res = callback(self.promiseResult)
-				if(res instanceof Promise){
-					res.then(val=>{
+				if (res instanceof Promise) {
+					res.then(val => {
 						resolve(val)
-					},err=>{
+					}, err => {
 						reject(err)
 					})
-				}else{
+				} else {
 					resolve(res)
 				}
-			}catch(err){
+			} catch (err) {
 				reject(err)
 			}
 		}
-		if(this.promiseState === 'fulfilled'){
+		if (this.promiseState === 'fulfilled') {
 			handleCallback(onResolved)
 		}
-		if(this.promiseState==='rejected'){
+		if (this.promiseState === 'rejected') {
 			handleCallback(onRejected)
 		}
-		if(this.promiseState==='pending'){
+		if (this.promiseState === 'pending') {
 			this.callbackList.push({
-				onResolved:()=>{
+				onResolved: () => {
 					handleCallback(onResolved)
 				},
-				onRejected:()=>{
+				onRejected: () => {
 					handleCallback(onRejected)
 				}
 			})

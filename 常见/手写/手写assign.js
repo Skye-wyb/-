@@ -1,10 +1,10 @@
-function myAssign(target, ...source) {
+function myAssign (target, ...source) {
   if (target == null) {
     throw new TypeError('Cannot convert undefined or null to object')
   }
   let res = Object(target)
   source.forEach(obj => {
-    if (obj !== null) {
+    if (obj) {
       for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
           res[key] = obj[key]

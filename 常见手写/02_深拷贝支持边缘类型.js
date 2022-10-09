@@ -27,7 +27,7 @@ function deepClone(obj, cache = new WeakMap()) {
   // 函数类型
   if (obj instanceof Function) {
     return function (...args) {
-      obj.apply(this, args)
+      return obj.apply(this, args)
     }
   }
   // Map类型

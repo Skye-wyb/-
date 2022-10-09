@@ -1,14 +1,14 @@
-function add(a, b) {
+function add (a, b) {
   console.log(a, b)
   return a + b
 }
 let ans = 0
-function debounce(fn, time) {
+function debounce (fn, time) {
   let timer = null
-  return function () {
+  return function (...args) {
     clearTimeout(timer)
-    var args = arguments
-    console.log(args)
+    // var args = arguments
+    // console.log(args)
     timer = setTimeout(function () {
       return fn.apply(this, args)
     }, time)
