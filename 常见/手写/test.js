@@ -1,12 +1,8 @@
-function Person (name) {
-    this.name = name
+const sum = (...args){
+    const add = (...args1)=>{
+        args = [...args,...args1]
+        return add
+    }
+    add.valueOf = ()=> args.reduce((pre,cur)=>pre+cur,0)
+    return add
 }
-Person.prototype.sayHi = function () {
-    console.log('Hi');
-    return this.name
-}
-
-function Student () { }
-
-Student.prototype = new Person('网易')
-Student.prototype.constructor = Student
