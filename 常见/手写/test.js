@@ -1,8 +1,11 @@
-const sum = (...args){
-    const add = (...args1)=>{
-        args = [...args,...args1]
-        return add
+let hasCycle = function (head) {
+    while (head) {
+        if (head.flag) {
+            return true
+        } else {
+            head.flag = true
+            head = head.next
+        }
     }
-    add.valueOf = ()=> args.reduce((pre,cur)=>pre+cur,0)
-    return add
+    return false
 }
