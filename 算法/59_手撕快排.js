@@ -22,5 +22,5 @@ let quickSort = function (nums, left = 0, right = nums.length - 1) {
   return nums
 }
 
-let nums = [7, 1, 9, 2, 4, 27, 0, 6, 85]
+let nums = [1, 6, 54, 85, 27, 3, 2, 99]
 console.log(quickSort(nums))
