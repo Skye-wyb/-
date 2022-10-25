@@ -1,17 +1,16 @@
-const address = [
-    {
-        id: 1,
-        name: "北京市",
-        children: [
-            { id: 11, name: "海淀区", children: [{ id: 111, name: "中关村" }] },
-            { id: 12, name: "朝阳区" },
-        ],
-    },
-    { id: 2, name: "河北省" },
-];
-function getNameById (address, id) {
-    
+// 列出打印顺序
+function changeStuff (a, b, c) {
+    a = a * 10;
+    b.item = "changed";
+    c = { item: "changed" };
 }
-getNameById(address, 2);  // 河北省 
-getNameById(address, 111);  // 中关村 
-getNameById(address, 32);  // ""
+
+let num = 10;
+let obj1 = { item: "unchanged" };
+let obj2 = { item: "unchanged" };
+
+changeStuff(num, obj1, obj2);
+
+console.log(num);
+console.log(obj1.item);
+console.log(obj2.item);
