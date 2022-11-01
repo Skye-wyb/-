@@ -1,16 +1,12 @@
-// 列出打印顺序
-function changeStuff (a, b, c) {
-    a = a * 10;
-    b.item = "changed";
-    c = { item: "changed" };
-}
+var isValidSerialization = function (preorder) {
+    if (preorder == '') return false;
+    let nodes = preorder.split(',');
+    let numbersOfNodes = 1;
 
-let num = 10;
-let obj1 = { item: "unchanged" };
-let obj2 = { item: "unchanged" };
-
-changeStuff(num, obj1, obj2);
-
-console.log(num);
-console.log(obj1.item);
-console.log(obj2.item);
+    for (let i = 0; i < nodes.length; i++) {
+        numbersOfNodes--;
+        if (numbersOfNodes < 0) return false;
+        if (nodes[i] != '#') numbersOfNodes += 2;
+    }
+    return numbersOfNodes == 0;
+};

@@ -10,7 +10,7 @@ let isPalindrome = function(head){
 }
 
 // 利用链表的后序遍历
-let isPalindrome = function(head){
+let _isPalindrome = function(head){
 	let left = head
 	function traverse(right){
 		if(!right) return true

@@ -6,7 +6,7 @@ const rootList = [
   { id: 21, parent: 2, text: '菜单2-1' },
 ]
 
-function getTree(rootList, id, list) {
+function getTree (rootList, id, list) {
   for (const item of rootList) {
     if (item.parent === id) {
       list.push(item)
