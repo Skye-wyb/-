@@ -1,3 +1,4 @@
+// 判断构造函数的原型对象是否在对象的原型链上
 function _instanceof(obj,target){
 	let prototype = target.prototype
 	let proto = Object.getPrototypeOf(obj)

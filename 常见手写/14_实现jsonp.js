@@ -17,7 +17,8 @@ function Jsonp(url,params,callback){
 	scriptNode.src = url + querystring
 	window[callbackName] = function(){
 		callback(...arguments)
-		document.getElementsByTagName('head')[0].removeChild(scriptNode)
+		document.getElementsByT
+		agName('head')[0].removeChild(scriptNode)
 	}
 	// 发送请求
 	document.getElementsByTagName('head')[0].appendChild(scriptNode)
