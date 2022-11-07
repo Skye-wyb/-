@@ -1,4 +1,4 @@
-let getIntersectionNode = function(headA,headB){
+let _getIntersectionNode = function(headA,headB){
 	if(!headA && !headB){
 		return null
 	}

@@ -7,15 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            font-size: 12px;
-            transform: scale(0.5);
+        * {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .container>div {
+            float: left;
+        }
+
+        .left,
+        .right {
+            width: 200px;
+            background-color: yellow;
+        }
+
+        .main {
+            width: calc(100% - 400px);
+            background-color: hotpink;
         }
     </style>
 </head>
 
 <body>
-    我是12px的文字
+    <div class="container">
+        <div class="left"></div>
+        <div class="main"></div>
+        <div class="right"></div>
+    </div>
 </body>
 
 </html>

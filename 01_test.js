@@ -1,13 +1,16 @@
-// for (var i = 0; i < 10; i++) {
-//     (function (i) {
-//         setTimeout(() => {
-//             console.log(i);
-//         }, i * 1000)
-//     })(i)
-// }
-
-for (let i = 0; i < 10; i++) {
-    setTimeout(() => {
-        console.log(i);
-    }, i * 1000)
+let plus = function (...args) {
+    if (args.length === 0) {
+        console.log(0);
+        return
+    }
+    let ans = args[0]
+    return function fn (...args1) {
+        if (args1.length == 0) {
+            console.log(ans);
+            return
+        } else {
+            ans += args1[0]
+            return fn
+        }
+    }
 }

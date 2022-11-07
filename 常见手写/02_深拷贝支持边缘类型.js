@@ -1,5 +1,5 @@
 // WeakMap解决循环引用
-function deepClone(obj, cache = new WeakMap()) {
+function deepClone (obj, cache = new WeakMap()) {
   if (obj === null || typeof obj !== 'object') {
     return obj
   }
@@ -34,20 +34,17 @@ function deepClone(obj, cache = new WeakMap()) {
   if (obj instanceof Map) {
     const copy = new Map()
     cache.set(obj, copy)
-    for (let key in obj) {
-      copy.set(
-        key,
-        typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]
-      )
+    for (let [key, value] of obj) {
+      copy.set(key, typeof value == 'object' ? deepClone(value) : value)
     }
     return copy
   }
   // Set类型
   if (obj instanceof Set) {
-    const copy = new Set()
+    let copy = new Set()
     cache.set(obj, copy)
-    for (let key in obj) {
-      copy.add(typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
+    for (let key of obj) {
+      copy.add(typeof key == 'object' ? deepClone(key) : key)
     }
     return copy
   }
@@ -67,3 +64,29 @@ function deepClone(obj, cache = new WeakMap()) {
     return copyObj
   }
 }
+
+
+let map = new Map()
+map.set('name', '网易')
+map.set('age', 23)
+map.set('hooby', {
+  name: 'netEasy',
+  age: 25
+})
+let copy = deepClone(map)
+copy.set('hobby', {
+  name: '王一博',
+  age: 25
+})
+console.log(copy);
+console.log(map);
+
+// let set = new Set([1, 2, 3, 4, 5, 6, 7, { name: '网易' }])
+// let copy = deepClone(set)
+// for (let key of copy) {
+//     if (typeof key == 'object') {
+//         key.name = '网易大厦'
+//     }
+// }
+// console.log(copy);
+// console.log(set);

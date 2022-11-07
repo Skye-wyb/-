@@ -1,12 +1,10 @@
-var isValidSerialization = function (preorder) {
-    if (preorder == '') return false;
-    let nodes = preorder.split(',');
-    let numbersOfNodes = 1;
-
-    for (let i = 0; i < nodes.length; i++) {
-        numbersOfNodes--;
-        if (numbersOfNodes < 0) return false;
-        if (nodes[i] != '#') numbersOfNodes += 2;
+function compose (fns) {
+    return function (...args) {
+        let index = 0
+        let res = fns[index].apply(this, args)
+        while (++index < fns.length) {
+            res = fns[index].call(this, res)
+        }
+        return res
     }
-    return numbersOfNodes == 0;
-};
+}

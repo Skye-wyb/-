@@ -7,16 +7,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<style>
-		.box {
-			font-size: 12px;
-			transform: scale(0.5);
-			transform-origin: top center;
+		.parent {
+			height: 1000px;
+			width: 500px;
+			margin: 0 auto;
+			background-color: pink;
+		}
+
+		.son {
+			width: 50px;
+			height: 100px;
+			position: sticky;
+			top: 100px;
+			background-color: green;
 		}
 	</style>
 </head>
 
 <body>
-	<div class="box">中国人就是很强</div>
+	<div class="parent">
+		<div class="son"></div>
+	</div>
 </body>
 
 </html>

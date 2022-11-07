@@ -1,3 +1,5 @@
+const path = require("path")
+
 let sumNumbers = function (root) {
   const dfs = function (root, path) {
     if (!root) {
