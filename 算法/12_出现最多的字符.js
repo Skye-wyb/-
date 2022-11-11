@@ -1,18 +1,21 @@
-let minDepth = function(root){
-	if(!root){
-		return 0
-	}
-	const stack = [[root,1]]
-	while(stack.length){
-		const [o,n] = stack.shift()
-		if(!o.left && !o.right){
-			return n
-		}
-		if(o.left){
-			stack.push([o.left,n+1])
-		}
-		if(o.right){
-			stack.push([o.right,n+1])
+let str = 'huakidhnaaaaaa'
+function mostChar (str) {
+	let map = new Map()
+	for (let i = 0; i < str.length; i++) {
+		if (map.has(str[i])) {
+			map.set(str[i], map.get(str[i]) + 1)
+		} else {
+			map.set(str[i], 1)
 		}
 	}
+	let ans = 0, s
+	for (let [key, value] of map) {
+		if (value > ans) {
+			ans = value
+			s = key
+		}
+	}
+	return s
 }
+
+console.log(mostChar(str));

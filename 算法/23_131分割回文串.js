@@ -1,6 +1,6 @@
-function isPail(s,l,r){
-	while(l<r){
-		if(s[l]!==s[r]){
+function isPail (s, l, r) {
+	while (l < r) {
+		if (s[l] !== s[r]) {
 			return false
 		}
 		l++
@@ -9,21 +9,27 @@ function isPail(s,l,r){
 	return true
 }
 
-let partition = function(s){
+let partition = function (s) {
 	let ans = []
-	function dfs(temp,start){
-		if(start === s.length){
+	function dfs (temp, start) {
+		if (start === s.length) {
 			ans.push([...temp])
 			return
 		}
-		for(let i=start;i<s.length;i++){
-			if(isPail(s,start,i)){
-				temp.push(s.substring(start,i+1))
-				dfs(temp,i+1)
+		for (let i = start; i < s.length; i++) {
+			if (isPail(s, start, i)) {
+				temp.push(s.substring(start, i + 1))
+				dfs(temp, i + 1)
 				temp.pop()
 			}
 		}
 	}
-	dfs([],0)
+	dfs([], 0)
 	return ans
 }
+
+// 输入：s = "aab"
+// 输出：[["a", "a", "b"], ["aa", "b"]]
+
+let s = 'aab'
+console.log(partition(s));
